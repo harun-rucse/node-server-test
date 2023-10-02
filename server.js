@@ -1,10 +1,10 @@
-var express = require("express");
+const express = require("express");
 
-var app = express();
+const app = express();
 
-var server = require("http").createServer(app);
+const server = require("http").createServer(app);
 
-var io = require("socket.io")(server, {
+const io = require("socket.io")(server, {
   cors: { origin: "*" },
 });
 
@@ -26,6 +26,7 @@ io.on("connection", (socket) => {
 app.get("/", function (req, res) {
   res.send("Hello World");
 });
+
 const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
